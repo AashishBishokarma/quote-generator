@@ -1,48 +1,93 @@
-import list from './data.js';
+// function asyncFun1() {
+//   return new Promise ((resolve,reject)=>{
+//     setTimeout(()=>{
+//       console.log("data1");
+//       resolve("sucess1")
+//     },3000)
+//   });
+// }
 
-let quote = document.getElementById("quote");
-let author = document.getElementById("author");
-let btn = document.getElementById("btn");
+// function asyncFun2() {
+//   return new Promise ((resolve,reject)=>{
+//     setTimeout(()=>{
+//       console.log("data2");
+//       resolve("sucess2")
+//     },3000)
+//   });
+// }
+
+// //Promise Chain
+// console.log("fetching data1");
+//  asyncFun1().then(()=>{
+//   console.log("fetching data2");
+//   asyncFun2().then((res)=>{})
+// })
 
 
 
+// let promise = new Promise((resolve, reject) => {
+//   console.log("I am a promise");
+//   reject("some error");
+// });
 
-
-function randomClick() {
-  // Get a random index from 0 to list.length - 1
-  const randomIndex = Math.floor(Math.random() * list.length);
-  // const randomIndex = (Math.random(0,list.length));
-  const item = list[randomIndex];
-
-  // Update the quote and author with the random item's data
-  quote.innerText = item.line1;
-  author.innerText = item.author;
-}
-
-btn.addEventListener("click",randomClick);
-
-// const url = "https://api.quotable.io/random";
-
-// let getQuote = () =>{
-//   fetch(url)
-//   .then(data => data.json())
-//   .then((item)=>{
-//     console.log(item);
+// console.log(promise);
+// const getPromise = () => {
+//   return new Promise ((resolve, reject)=>{
+//     console.log("i am promise");
+//     // resolve("sucessful");
+//     // reject("network error")
 //   })
 // }
 
-// window.addEventListener("load",getQuote);
-// fetch('https://reqres.in/api/users/23',{
-//   method:'POST',
-//   headers:{
-//     'Content-Type':'application/json'
-//   },
-//   body:JSON.stringify({
-//     name:'User 2'
-//   })
+// let promise = getPromise() ;
+// promise.then((res)=>{
+//   console.log("promise fullfilled",res)
 // })
-//   .then(res =>{
-//     return res.json()
-//   })
-//   .then(data => console.log(data))
-//   .catch(error => console.log("Error"))
+
+
+// promise.catch((ma)=>{
+//   console.log("rejected" , ma);
+// })
+
+async function hello(){
+  console.log("madarchod");
+}
+
+function getData(dataId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("data", dataId);
+      resolve("sucess");
+      // reject("error");
+      
+    }, 2000);
+  });
+}
+
+// getData(1).then((res)=>{
+//   return getData(2)
+// }).then((res)=>{
+//   return getData(3);
+// }).then((res)=>{
+//   console.log(res)
+// })
+
+
+
+// import list from './data.js';
+
+// let quote = document.getElementById("quote");
+// let author = document.getElementById("author");
+// let btn = document.getElementById("btn");
+
+// function randomClick() {
+
+//   const randomIndex = Math.floor(Math.random() * list.length);
+
+//   const item = list[randomIndex];
+
+//   quote.innerText = item.line1;
+//   author.innerText = item.author;
+// }
+
+// btn.addEventListener("click",randomClick);
